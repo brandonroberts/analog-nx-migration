@@ -6,6 +6,40 @@
   "prefix": "analog-nx-repo",
   "targets": {
     "build": {
+      "executor": "@nrwl/vite:build",
+      "options": {
+        "configFile": "vite.config.ts",
+        "outputPath": "apps/analog-app/client"
+      },
+      "defaultConfiguration": "production",
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "sourcemap": false,
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "analog-app:build",
+        "port": 4200
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "analog-app:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "analog-app:build:production"
+        }
+      }
+    },
+    "build-ng": {
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
@@ -48,7 +82,7 @@
       },
       "defaultConfiguration": "production"
     },
-    "serve": {
+    "serve-ng": {
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
