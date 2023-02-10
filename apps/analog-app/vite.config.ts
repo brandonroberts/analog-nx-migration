@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import analog from '@analogjs/platform';
+import tsconfigPathsPlugin from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -14,7 +15,13 @@ export default defineConfig(({ mode }) => ({
     analog({
       vite: {
         tsconfig: 'apps/analog-app/tsconfig.app.json'
+      },
+      nitro: {
+        rootDir: 'apps/analog-app'
       }
+    }),
+    tsconfigPathsPlugin({
+      root: '../../'
     })
   ],
   test: {

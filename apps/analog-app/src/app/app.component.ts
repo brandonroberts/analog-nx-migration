@@ -1,11 +1,12 @@
-import { NxWelcomeComponent } from './nx-welcome.component';
 import { Component } from '@angular/core';
+import { MyComponent } from '@analog-nx-repo/my-lib';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent],
+  imports: [MyComponent, RouterOutlet],
   selector: 'analog-nx-repo-root',
-  template: ` <analog-nx-repo-nx-welcome></analog-nx-repo-nx-welcome> `,
+  template: ` <router-outlet/> `,
   styles: [],
 })
 export class AppComponent {
