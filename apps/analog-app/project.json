@@ -44,7 +44,7 @@
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/analog-app",
-        "index": "apps/analog-app/src/index.html",
+        "index": "apps/analog-app/index.html",
         "main": "apps/analog-app/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/analog-app/tsconfig.app.json",
